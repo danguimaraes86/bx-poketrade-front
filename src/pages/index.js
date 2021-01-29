@@ -12,6 +12,8 @@ import TradeButton from '../components/TradeButton'
 export default function Home() {
 
   const [searchResults, setSearchResults] = useState([])
+  const [trainer01, setTrainer01] = useState('')
+  const [trainer02, setTrainer02] = useState('')
   const [pokemonList01, setPokemonList01] = useState([])
   const [pokemonList02, setPokemonList02] = useState([])
 
@@ -22,8 +24,8 @@ export default function Home() {
 
       <NavBar />
       <TrainersWrapper>
-        <TrainerCard pokemonList={pokemonList01} />
-        <TrainerCard pokemonList={pokemonList02} />
+        <TrainerCard pokemonList={pokemonList01} setTrainer={setTrainer01} />
+        <TrainerCard pokemonList={pokemonList02} setTrainer={setTrainer02} />
       </TrainersWrapper>
 
       <TradeButton isFairTrade={isFairTrade} />
@@ -36,6 +38,8 @@ export default function Home() {
           setPokemonList01={setPokemonList01}
           pokemonList02={pokemonList02}
           setPokemonList02={setPokemonList02}
+          trainer01={trainer01}
+          trainer02={trainer02}
         />
       </SearchWrapper>
 

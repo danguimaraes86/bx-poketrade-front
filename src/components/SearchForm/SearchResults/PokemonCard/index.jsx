@@ -1,7 +1,15 @@
 import axios from 'axios'
 import { useState } from 'react'
 
-export default function PokemonCard({ pokemon, pokemonList01, setPokemonList01, pokemonList02, setPokemonList02 }) {
+export default function PokemonCard({
+  pokemon,
+  pokemonList01,
+  setPokemonList01,
+  pokemonList02,
+  setPokemonList02,
+  trainer01,
+  trainer02
+}) {
 
   const [pokemonDetails, setPokemonDetails] = useState({})
 
@@ -38,15 +46,13 @@ export default function PokemonCard({ pokemon, pokemonList01, setPokemonList01, 
               className="btn btn-dark text-warning"
               onClick={() => handleAddPokemon01(pokemonDetails)}
             >
-              Add<br />
-              {'trainer_01'}
+              <i class="bi bi-plus-circle" />{trainer01.length === 0 ? ' trainer 01' : (` ${trainer01}`)}
             </button>
             <button
               className="btn btn-dark text-warning"
               onClick={() => handleAddPokemon02(pokemonDetails)}
-              >
-              Add<br />
-              {'trainer_02'}
+            >
+              <i class="bi bi-plus-circle" />{trainer02.length === 0 ? ' trainer 02' : (` ${trainer02}`)}
             </button>
           </div>
         </div>
