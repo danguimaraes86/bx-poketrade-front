@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Layout from '../components/Layout'
 import NavBar from '../components/NavBar'
 import TrainersWrapper from '../components/Layout/TrainersWrapper'
@@ -7,40 +9,11 @@ import SearchInput from '../components/SearchForm/SearchInput'
 import SearchResults from '../components/SearchForm/SearchResults'
 import TradeButton from '../components/TradeButton'
 
-import pokemonNames from '../db/PokemonNames'
-
 export default function Home() {
 
-  const searchValue = 'saur'
-  const searchResults = []
-
-  function handleSearch(value) {
-    pokemonNames.forEach((pokemon) => {
-      if (pokemon.includes(value)) {
-        searchResults.push(pokemon)
-      }
-    })
-  }
-  handleSearch(searchValue)
-
-  const pokemonList01 = [{
-    api_id: 1,
-    name: 'bulbasaur',
-    sprite_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-    base_experience: 64
-  }, {
-    api_id: 11,
-    name: 'metapod',
-    sprite_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png',
-    base_experience: 72
-  }]
-
-  const pokemonList02 = [{
-    api_id: 1,
-    name: 'nidoqueen',
-    sprite_url: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png',
-    base_experience: 227
-  }]
+  const [searchResults, setSearchResults] = useState([])
+  const [pokemonList01, setPokemonList01] = useState([])
+  const [pokemonList02, setPokemonList02] = useState([])
 
   let isFairTrade = false
 
@@ -56,8 +29,14 @@ export default function Home() {
       <TradeButton isFairTrade={isFairTrade} />
 
       <SearchWrapper>
-        <SearchInput />
-        <SearchResults searchResults={searchResults} />
+        <SearchInput setSearchResults={setSearchResults} />
+        <SearchResults
+          searchResults={searchResults}
+          pokemonList01={pokemonList01}
+          setPokemonList01={setPokemonList01}
+          pokemonList02={pokemonList02}
+          setPokemonList02={setPokemonList02}
+        />
       </SearchWrapper>
 
     </Layout >

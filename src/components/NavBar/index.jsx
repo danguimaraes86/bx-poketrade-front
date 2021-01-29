@@ -11,7 +11,7 @@ export default function NavBar() {
         </div>
         <div>
           <span className='text-warning text-center my-auto'>
-            <i class="bi bi-clock-history fs-3" />
+            <i className="bi bi-clock-history fs-3" />
           </span>
         </div>
       </div>
