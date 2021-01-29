@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import axios from 'axios'
 
 import Layout from '../components/Layout'
 import NavBar from '../components/NavBar'
@@ -23,6 +24,20 @@ export default function Home() {
     setPokemonList02([])
   }
 
+  async function handleSubmitTrade() {
+    const backend_url = 'https://bx-pokemon-trader.herokuapp.com/pokemontrade'
+    const payload = {
+      pokemontrade: {
+        trainer01: trainer01,
+        trainer02: trainer02,
+        pokemon_list01: pokemonList01,
+        pokemon_list02: pokemonList02
+      }
+    }
+    console.log(payload);
+    axios.post(backend_url, payload)
+  }
+
   return (
     <Layout>
 
@@ -33,9 +48,10 @@ export default function Home() {
       </TrainersWrapper>
 
       <TradeButton
-      pokemonList01={pokemonList01}
-      pokemonList02={pokemonList02}
-      resetTrade={resetTrade}
+        onSubmitTrade={handleSubmitTrade}
+        pokemonList01={pokemonList01}
+        pokemonList02={pokemonList02}
+        resetTrade={resetTrade}
       />
 
       <SearchWrapper>
