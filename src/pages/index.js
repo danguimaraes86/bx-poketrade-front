@@ -5,9 +5,9 @@ import TrainerCard from '../components/TrainerCard'
 import SearchWrapper from '../components/Layout/SearchWrapper'
 import SearchInput from '../components/SearchForm/SearchInput'
 import SearchResults from '../components/SearchForm/SearchResults'
+import TradeButton from '../components/TradeButton'
 
 import pokemonNames from '../db/PokemonNames'
-
 
 export default function Home() {
 
@@ -42,14 +42,18 @@ export default function Home() {
     base_experience: 227
   }]
 
+  let isFairTrade = false
+
   return (
     <Layout>
-      
+
       <NavBar />
       <TrainersWrapper>
         <TrainerCard pokemonList={pokemonList01} />
         <TrainerCard pokemonList={pokemonList02} />
       </TrainersWrapper>
+
+      <TradeButton isFairTrade={isFairTrade} />
 
       <SearchWrapper>
         <SearchInput />
