@@ -5,7 +5,7 @@ export default function PokemonCard({ key, pokemon }) {
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" className="card-img-top" alt="..." />
               <div>
                 <h5 className="card-title text-capitalize text-center">{pokemon}</h5>
-                <div className='d-flex justify-content-between'>
+                <div className='d-flex justify-content-around'>
                   <a href="#" className="btn btn-dark text-warning">
                     Add
                     <br />
