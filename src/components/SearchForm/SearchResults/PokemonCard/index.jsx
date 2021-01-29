@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function PokemonCard({
   pokemon,
@@ -23,7 +23,10 @@ export default function PokemonCard({
       base_experience: data.base_experience
     })
   }
-  getPokemonDetails(pokemon)
+  useEffect(() => {
+    getPokemonDetails(pokemon)
+  }, [pokemon])
+
 
   function handleAddPokemon01(pokemon) {
     let pokemonList = [...pokemonList01, pokemon]
@@ -46,13 +49,13 @@ export default function PokemonCard({
               className="btn btn-dark text-warning"
               onClick={() => handleAddPokemon01(pokemonDetails)}
             >
-              <i class="bi bi-plus-circle" />{trainer01.length === 0 ? ' trainer 01' : (` ${trainer01}`)}
+              <i className="bi bi-plus-circle" />{trainer01.length === 0 ? ' trainer 01' : (` ${trainer01}`)}
             </button>
             <button
               className="btn btn-dark text-warning"
               onClick={() => handleAddPokemon02(pokemonDetails)}
             >
-              <i class="bi bi-plus-circle" />{trainer02.length === 0 ? ' trainer 02' : (` ${trainer02}`)}
+              <i className="bi bi-plus-circle" />{trainer02.length === 0 ? ' trainer 02' : (` ${trainer02}`)}
             </button>
           </div>
         </div>

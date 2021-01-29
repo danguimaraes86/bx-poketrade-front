@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Layout from '../components/Layout'
 import NavBar from '../components/NavBar'
@@ -17,7 +17,11 @@ export default function Home() {
   const [pokemonList01, setPokemonList01] = useState([])
   const [pokemonList02, setPokemonList02] = useState([])
 
-  let isFairTrade = false
+  function resetTrade() {
+    setSearchResults([])
+    setPokemonList01([])
+    setPokemonList02([])
+  }
 
   return (
     <Layout>
@@ -28,7 +32,11 @@ export default function Home() {
         <TrainerCard pokemonList={pokemonList02} setTrainer={setTrainer02} />
       </TrainersWrapper>
 
-      <TradeButton isFairTrade={isFairTrade} />
+      <TradeButton
+      pokemonList01={pokemonList01}
+      pokemonList02={pokemonList02}
+      resetTrade={resetTrade}
+      />
 
       <SearchWrapper>
         <SearchInput setSearchResults={setSearchResults} />
