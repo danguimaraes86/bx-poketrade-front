@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import PokemonCard from './PokemonCard'
 
 export default function SearchResults({ searchResults, ...props }) {
