@@ -9,7 +9,6 @@ import TrainerCard from '../components/TrainerCard'
 export default function LastTrades({ tradeHistory }) {
 
   function handleTradeHistory(history) {
-
     return (
       history.map((trade, key) => {
         const pokemon_list01 = trade.trainers[0].pokemons
@@ -38,7 +37,7 @@ export default function LastTrades({ tradeHistory }) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const baseURL = 'https://bx-poketrade-back.herokuapp.com/'
   const { data } = await axios('/pokemontrade', baseURL, 'GET')
   return {
