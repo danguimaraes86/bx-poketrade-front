@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from 'axios'
+import axios from '../lib/axiosRequest'
 
 import Layout from '../components/Layout'
 import NavBar from '../components/NavBar'
@@ -25,7 +25,7 @@ export default function Home() {
   }
 
   async function handleSubmitTrade() {
-    const backend_url = 'https://bx-pokemon-trader.herokuapp.com/pokemontrade'
+    const baseURL = 'https://bx-poketrade-back.herokuapp.com/'
     const payload = {
       pokemontrade: {
         trainer01: trainer01,
@@ -34,8 +34,8 @@ export default function Home() {
         pokemon_list02: pokemonList02
       }
     }
-    console.log(payload);
-    axios.post(backend_url, payload)
+    const response = await axios('/pokemontrade', baseURL, 'POST', payload )
+    console.log(response);
   }
 
   return (

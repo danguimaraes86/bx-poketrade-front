@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../../../lib/axiosRequest'
 import { useEffect, useState } from 'react'
 
 export default function PokemonCard({
@@ -13,9 +13,9 @@ export default function PokemonCard({
 
   const [pokemonDetails, setPokemonDetails] = useState({})
 
-  const url = 'https://pokeapi.co/api/v2/pokemon'
   async function getPokemonDetails(pokemon) {
-    const { data } = await axios.get(`${url}/${pokemon}`)
+    const baseURL = 'https://pokeapi.co/api/v2/pokemon/'
+    const { data } = await axios(pokemon, baseURL, 'GET')
     setPokemonDetails({
       api_id: data.id,
       name: data.name,
@@ -23,6 +23,7 @@ export default function PokemonCard({
       base_experience: data.base_experience
     })
   }
+
   useEffect(() => {
     getPokemonDetails(pokemon)
   }, [pokemon])
