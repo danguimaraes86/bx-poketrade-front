@@ -11,7 +11,7 @@ export default function PokemonTable({ pokemonList }){
       return (pokemonList.map((pokemon, key) => {
         return (
           <tr key={key}>
-            <th scope="row" className='align-middle text-capitalize'>{pokemon.name}</th>
+            <th scope='row' className='align-middle text-capitalize'>{pokemon.name}</th>
             <td><img src={pokemon.sprite_url} height='32' width='32' /></td>
             <td className='text-center align-middle'>{pokemon.base_experience}</td>
           </tr>
@@ -21,12 +21,12 @@ export default function PokemonTable({ pokemonList }){
   }
 
   return (
-    <table className="table table-striped m-0">
+    <table className='table table-striped m-0'>
         <thead>
           <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">{''}</th>
-            <th scope="col" className='text-center'>Power</th>
+            <th scope='col'>Nome</th>
+            <th scope='col'>{''}</th>
+            <th scope='col' className='text-center'>Power</th>
           </tr>
         </thead>
         <tbody>

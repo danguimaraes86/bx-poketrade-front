@@ -19,15 +19,15 @@ export default function SearchInput({ setSearchResults }) {
   return (
     <div className='row'>
       <div className='col-10'>
-        <div className="form-floating">
+        <div className='form-floating'>
           <input
-            type="text"
+            type='text'
             className='form-control'
-            id="searchPokemonForm"
+            id='searchPokemonForm'
             placeholder='pokemon'
             onChange={(e) => setSearchValue(e.target.value)}
           />
-          <label htmlFor="searchPokemonForm">Pokemon</label>
+          <label htmlFor='searchPokemonForm'>Pokemon</label>
         </div>
       </div>
 
@@ -38,11 +38,11 @@ export default function SearchInput({ setSearchResults }) {
           onClick={() => handleSearch(searchValue)}
         >
           <span className={`my-auto mx-auto ${isSearchOK ? 'text-warning' : 'text-white'}`}>
-            <i className="bi bi-search fs-3" />
+            <i className='bi bi-search fs-3' />
           </span>
         </button>
       </div>
-      <div id="searchHelp" className="form-text">A busca deve conter no mínimo 3 caracteres.</div>
+      <div id='searchHelp' className='form-text'>A busca deve conter no mínimo 3 caracteres.</div>
 
     </div>
   )

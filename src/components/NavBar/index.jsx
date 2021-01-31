@@ -15,7 +15,7 @@ export default function NavBar() {
         <Link href='/history'>
           <div className='btn'>
             <span className='text-warning text-center my-auto'>
-              <i className="bi bi-clock-history fs-3" />
+              <i className='bi bi-clock-history fs-3' />
             </span>
           </div>
         </Link>

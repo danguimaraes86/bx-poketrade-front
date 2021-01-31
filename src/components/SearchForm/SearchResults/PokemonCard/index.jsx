@@ -42,21 +42,21 @@ export default function PokemonCard({
   return (
     <div className='col-12 col-md-4 my-2 mb-md-0'>
       <div className='card p-2'>
-        <img src={pokemonDetails.sprite_url} className="card-img-top" alt="..." />
+        <img src={pokemonDetails.sprite_url} className='card-img-top' alt='...' />
         <div>
-          <h5 className="card-title text-capitalize text-center">{pokemonDetails.name}</h5>
+          <h5 className='card-title text-capitalize text-center'>{pokemonDetails.name}</h5>
           <div className='d-flex justify-content-around'>
             <button
-              className="btn btn-dark text-warning"
+              className='btn btn-dark text-warning'
               onClick={() => handleAddPokemon01(pokemonDetails)}
             >
-              <i className="bi bi-plus-circle" />{trainer01.length === 0 ? ' trainer 01' : (` ${trainer01}`)}
+              <i className='bi bi-plus-circle' />{trainer01.length === 0 ? ' trainer 01' : (` ${trainer01}`)}
             </button>
             <button
-              className="btn btn-dark text-warning"
+              className='btn btn-dark text-warning'
               onClick={() => handleAddPokemon02(pokemonDetails)}
             >
-              <i className="bi bi-plus-circle" />{trainer02.length === 0 ? ' trainer 02' : (` ${trainer02}`)}
+              <i className='bi bi-plus-circle' />{trainer02.length === 0 ? ' trainer 02' : (` ${trainer02}`)}
             </button>
           </div>
         </div>
