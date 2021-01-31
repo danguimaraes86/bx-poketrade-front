@@ -35,15 +35,9 @@ export default function TradeButton({ onSubmitTrade, resetTrade, pokemonList01, 
 
   return (
     <div className='container my-2 p-2'>
-      <div
-        className='d-flex justify-content-center'
-        onClick={onSubmitTrade}
-      >
+      <div className='d-flex justify-content-center' onClick={onSubmitTrade}>
         {handleTradeButton(isFair)}
-        <button
-          className='btn btn-outline-dark ms-2'
-          onClick={resetTrade}
-        >
+        <button className='btn btn-outline-dark ms-2' onClick={resetTrade}>
           Limpar
         </button>
       </div>

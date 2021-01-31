@@ -34,8 +34,11 @@ export default function Home() {
         pokemon_list02: pokemonList02
       }
     }
-    const response = await axios('/pokemontrade', baseURL, 'POST', payload )
-    console.log(response);
+    const result = await axios('/pokemontrade', baseURL, 'POST', payload)
+    
+    if(result.status === 201){
+      resetTrade()
+    }
   }
 
   return (
@@ -43,8 +46,8 @@ export default function Home() {
 
       <NavBar />
       <TrainersWrapper>
-        <TrainerCard pokemonList={pokemonList01} setTrainer={setTrainer01} />
-        <TrainerCard pokemonList={pokemonList02} setTrainer={setTrainer02} />
+        <TrainerCard pokemonList={pokemonList01} setTrainer={setTrainer01} viewPage={'home'} />
+        <TrainerCard pokemonList={pokemonList02} setTrainer={setTrainer02} viewPage={'home'} />
       </TrainersWrapper>
 
       <TradeButton

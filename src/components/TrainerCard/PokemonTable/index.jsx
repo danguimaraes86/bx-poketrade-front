@@ -24,7 +24,7 @@ export default function PokemonTable({ pokemonList }){
     <table className="table table-striped m-0">
         <thead>
           <tr>
-            <th scope="col">Name</th>
+            <th scope="col">Nome</th>
             <th scope="col">{''}</th>
             <th scope="col" className='text-center'>Power</th>
           </tr>
