@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import FairTradeButton from './FairTradeButton'
 import NotFairTradeButton from './NotFairTradeButton'
 
-export default function TradeButton({ onSubmitTrade, resetTrade, pokemonList01, pokemonList02 }) {
+export default function TradeButton({ onSubmitTrade, resetTrade, pokemonList01, pokemonList02, ...props }) {
 
   const [isFair, setIsFair] = useState(false)
 
@@ -27,7 +27,7 @@ export default function TradeButton({ onSubmitTrade, resetTrade, pokemonList01, 
 
   function handleTradeButton(fair) {
     if (fair) {
-      return <FairTradeButton />
+      return <FairTradeButton {...props} />
     } else {
       return <NotFairTradeButton />
     }
@@ -36,7 +36,7 @@ export default function TradeButton({ onSubmitTrade, resetTrade, pokemonList01, 
   return (
     <div className='container my-2 p-2'>
       <div className='d-flex justify-content-center' onClick={onSubmitTrade}>
-        {handleTradeButton(isFair)}
+        { handleTradeButton(isFair) }
         <button className='btn btn-outline-dark ms-2' onClick={resetTrade}>
           Limpar
         </button>

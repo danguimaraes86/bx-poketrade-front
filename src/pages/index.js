@@ -17,6 +17,7 @@ export default function Home() {
   const [trainer02, setTrainer02] = useState('')
   const [pokemonList01, setPokemonList01] = useState([])
   const [pokemonList02, setPokemonList02] = useState([])
+  const [loading, setLoading] = useState(false)
 
   function resetTrade() {
     setSearchResults([])
@@ -25,6 +26,7 @@ export default function Home() {
   }
 
   async function handleSubmitTrade() {
+    setLoading(true)
     const baseURL = 'https://bx-poketrade-back.herokuapp.com/'
     const payload = {
       pokemontrade: {
@@ -35,8 +37,9 @@ export default function Home() {
       }
     }
     const result = await axios('/pokemontrade', baseURL, 'POST', payload)
-    
+
     if(result.status === 201){
+      setLoading(false)
       resetTrade()
     }
   }
@@ -52,6 +55,7 @@ export default function Home() {
 
       <TradeButton
         onSubmitTrade={handleSubmitTrade}
+        loading={loading}
         pokemonList01={pokemonList01}
         pokemonList02={pokemonList02}
         resetTrade={resetTrade}
