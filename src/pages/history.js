@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import axios from '../lib/axiosRequest'
 
 import Layout from '../components/Layout'

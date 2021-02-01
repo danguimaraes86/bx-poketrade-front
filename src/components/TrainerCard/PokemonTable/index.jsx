@@ -1,4 +1,4 @@
-export default function PokemonTable({ pokemonList }){
+export default function PokemonTable({ pokemonList }) {
 
   function handlePokemonList(pokemonList) {
     if (pokemonList.length === 0) {
@@ -22,16 +22,16 @@ export default function PokemonTable({ pokemonList }){
 
   return (
     <table className='table table-striped m-0'>
-        <thead>
-          <tr>
-            <th scope='col'>Nome</th>
-            <th scope='col'>{''}</th>
-            <th scope='col' className='text-center'>Power</th>
-          </tr>
-        </thead>
-        <tbody>
-          {handlePokemonList(pokemonList)}
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <th scope='col'>Nome</th>
+          <th scope='col'>{''}</th>
+          <th scope='col' className='text-center'>Power</th>
+        </tr>
+      </thead>
+      <tbody>
+        {handlePokemonList(pokemonList)}
+      </tbody>
+    </table>
   )
 }
